@@ -29,7 +29,7 @@ def evaluate_calculation():
 
 
 root = tk.Tk()
-root.geometry("300x275")
+root.geometry("350x275")
 text_result = tk.Text(root, height=2, width=16, font=("Arial", 24))
 
 
@@ -100,14 +100,14 @@ btn_paren_open = tk.Button(
 )
 
 btn_paren_close = tk.Button(
-    root, text=")", command=lambda: clear_field(")"), width=5, font=("Arial", 14)
+    root, text=")", command=lambda: add_to_calculation(")"), width=5, font=("Arial", 14)
 )
 
 # clear button
 btn_clear = tk.Button(
     root,
     text="C",
-    command=lambda: add_to_calculation("C"),
+    command=lambda: clear_field(),
     width=11,
     font=("Arial", 14),
 )
@@ -117,8 +117,10 @@ btn_equal = tk.Button(
     root, text="=", command=evaluate_calculation, width=11, font=("Arial", 14)
 )
 
+# text field
 text_result.grid(columnspan=5)
 
+# numbers
 btn_1.grid(row=2, column=1)
 btn_2.grid(row=2, column=2)
 btn_3.grid(row=2, column=3)
@@ -130,14 +132,17 @@ btn_8.grid(row=4, column=2)
 btn_9.grid(row=4, column=3)
 btn_0.grid(row=5, column=2)
 
+# operators
 btn_plus.grid(row=2, column=4)
 btn_minus.grid(row=3, column=4)
-btn_divide.grid(row=4, column=4)
-btn_mult.grid(row=5, column=4)
+btn_mult.grid(row=4, column=4)
+btn_divide.grid(row=5, column=4)
 
+# parentheses
 btn_paren_open.grid(row=5, column=1)
 btn_paren_close.grid(row=5, column=3)
 
+# clear and equal buttons
 btn_clear.grid(row=6, column=1, columnspan=2)
 btn_equal.grid(row=6, column=3, columnspan=2)
 
